@@ -21,29 +21,6 @@ public class SignUpServlet extends GenericServlet{
 		String password=req.getParameter("password");
 		long phone=Long.parseLong(req.getParameter("phone"));
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		Student  student=new Student();
 		student.setAddress(address);
 		student.setEmail(email);
