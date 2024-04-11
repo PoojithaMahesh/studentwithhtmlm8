@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -43,15 +44,17 @@ if(value) {
 	if(password.equals(dbPassword)) {
 //		loginsuccess
 //		it is a perfect email and perfect password
-		printWriter.print("LOGINSUCCESSS");
+		resp.sendRedirect("https://www.javatpoint.com/");
 	}else {
 //		it is a perfect email but invalid passwrd
-		printWriter.print("Sorry Invalid Password");
+		RequestDispatcher dispatcher=req.getRequestDispatcher("login.html");
+		dispatcher.include(req, resp);
 	}
 }else {
 //	value=false
 //	email is npt present
-	printWriter.print("Sorry Invalid Email");
+	RequestDispatcher dispatcher=req.getRequestDispatcher("login.html");
+	dispatcher.include(req, resp);
 }
 
 

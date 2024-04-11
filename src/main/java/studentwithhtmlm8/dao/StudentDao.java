@@ -50,4 +50,20 @@ public class StudentDao {
 			return null;
 		}
 	}
+	public Student updateStudent(int id, Student student) {
+		EntityManager entityManager=getEntityManager();
+		Student dbStudent=entityManager.find(Student.class, id);
+		if(dbStudent!=null) {
+//			id is present
+			EntityTransaction entityTransaction=entityManager.getTransaction();
+			entityTransaction.begin();
+			student.setId(id);
+			entityManager.merge(student);
+			entityTransaction.commit();
+			return student;
+		}else {
+//			id is not present
+			return null;
+		}
+	}
 }
